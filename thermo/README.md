@@ -1,18 +1,28 @@
 # Thermo
 
-Objecif du TP : 
+Objecifs du TP : 
 - afficher la température sur l'écran LCD
 - utiliser le potentiometre pour definir une température voulue
-- allumer une led rouge sur
+- l'utilisateur peut modifier la valeur entre 12 et 32
+- comparer cette valeur à la température ambiante 
+- allumer une led rouge sur la température souhaitée 
+- petite animation
 
 
-L e système devrait fonctionner comme suis:
-1. Il lit la température ambiante est compare cette valeur à la température souhaité. Si la
-différence est positive il active une led verte(bleu!) qui simule une sorte d&#39;aération. Si la
-différence est négative, il active une autre led. L&#39;intensité de l&#39;activation serai en fonction de
-la différence de température.
-2. Au démarrage la température souhaité est de 19, l(utilisateur pourra la changer en activant
-le potentiomètre (entre 12 et 32).
-3. l&#39;écran RGB affiche les deux valeurs.
-4. Une animation sur la zone entre les deux valeurs est possible suivants la créativité des
-étudiants.
+---
+
+Le code commence ligne [26](https://github.com/matteyeux/Arduino/blob/master/thermo/tp.ino#L26), on inclue la bibliothèque `rgb_lcd.h`. Celle-ci n'est pas disponible par défaut donc on l'a ajouté depuis [Github](https://github.com/Seeed-Studio/Grove_LCD_RGB_Backlight). <br>
+
+On definie des macros pour les différents pins et periphériques qu'on va utiliser comme ceci : 
+```
+#define LED 3 //  led Rouge pour temperature
+#define pot A1  //  pin du potentionmetre
+#define temp_sensor A0 // capteur de temperature
+```
+
+### Setup
+
+On utilise la fonction `setup()` pour initialiser des variables, le sens des pins, etc...
+En plus des variables à initialiser, on va configurer la sortie série, très utile pour le debugging :
+`Serial.begin(9600)` ca nous permet d'afficher des informations depuis la sortie série.
+
