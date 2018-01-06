@@ -23,8 +23,7 @@
 #   ---
 */
 
-#include <Wire.h>
-#include "rgb_lcd.h"
+#include <rgb_lcd.h>
 
 rgb_lcd lcd; 
 
@@ -37,9 +36,6 @@ const int B = 4275;					// B valeur de la thermistor
 const int R0 = 100000;				// R0 = 100k
 int ledR, valeurPrecedente; 
 
-double mapf(double val, double in_min, double in_max, double out_min, double out_max) {
-	return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-}
 
 // Fonction pour initialiser le programme pour le arduino
 void setup()
@@ -49,6 +45,10 @@ void setup()
 	lcd.setRGB(0, 0, 0);    // Défini les couleurs 
 	valeurPrecedente = -1;
 	pinMode(LED, OUTPUT);
+}
+
+double mapf(double val, double in_min, double in_max, double out_min, double out_max) {
+	return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
 float get_dat_cool_temp(){
@@ -64,7 +64,7 @@ float get_dat_cool_temp(){
 
 void loop()
 {   
-	double valeurActuelle, temp_I_want;
+	double valeurActuelle, temp_I_want = 19;
 	float temperature = get_dat_cool_temp();
  
 	lcd.clear(); // on clear le LCD
