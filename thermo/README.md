@@ -11,7 +11,7 @@ Objecifs du TP :
 
 ---
 
-Le code commence ligne [26](https://github.com/matteyeux/Arduino/blob/master/thermo/tp.ino#L26), on inclue la bibliothèque `rgb_lcd.h`. Celle-ci n'est pas disponible par défaut donc on l'a ajouté depuis [Github](https://github.com/Seeed-Studio/Grove_LCD_RGB_Backlight). On peut ainsi instancier l'objet comme ceci : `rgb_lcd lcd;`  <br>
+Le code commence ligne [26](https://github.com/matteyeux/Arduino/blob/master/thermo/tp.ino#L28), on inclue la bibliothèque `rgb_lcd.h`. Celle-ci n'est pas disponible par défaut donc on l'a ajouté depuis [Github](https://github.com/Seeed-Studio/Grove_LCD_RGB_Backlight). On peut ainsi instancier l'objet comme ceci : `rgb_lcd lcd;`  <br>
 
 On definie des macros pour les différents pins et periphériques qu'on va utiliser comme ceci : 
 ```
@@ -47,7 +47,7 @@ float get_dat_cool_temp(){
 }
 ```
 ### Loop
-La fonction `loop()` est la [fonction principale](https://github.com/matteyeux/Arduino/blob/master/thermo/tp.ino#L65) qui va tourner en boucle après l'initialisation.
+La fonction `loop()` est la [fonction principale](https://github.com/matteyeux/Arduino/blob/master/thermo/tp.ino#L67) qui va tourner en boucle après l'initialisation.
 
 On commence par initialiser deux variables de type double, puis une troisième nommé _temperature_ qui equivaut à la valeur retournée de `get_dat_cool_temp()`.
 
